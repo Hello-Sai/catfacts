@@ -1,0 +1,13 @@
+[Unit]
+Description=Celery Worker
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/ubuntu/home/catfacts
+ExecStart=/ubuntu/home/dj/bin/celery worker -A catfacts --loglevel=INFO
+
+[Install]
+WantedBy=multi-user.target
